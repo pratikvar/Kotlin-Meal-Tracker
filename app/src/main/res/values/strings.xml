@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Travel Meal Tracker</string>
+
+    <!--Meal Add Activity-->
+    <string name="meal_type_label">Meal Type</string>
+    <string name="meal_name_label">What you are having? (i.e. Pizza With Garlic Bread)</string>
+    <string name="meal_info_label">Describe some major ingredient (i.e. Cheddar Cheese, Broccoli)</string>
+    <string name="meal_time_label">What time you had?</string>
+    <string name="meal_restaurant_label">Where You had? (i.e. Uncle Pizza Kitchen)</string>
+    <string name="meal_location_label">Location</string>
+    <string name="meal_time_hint">12:45 PM</string>
+    <string name="meal_location_hint">19.1562533, 72.1655896</string>
+    <string name="meal_location_retrieve_failed">Failed to get location</string>
+    <string name="meal_image_capture_failed">Failed to capture Image</string>
+    <string name="save_meal">Save Awesome Meal</string>
+    <string name="meal_add_image_validation">Capture Meal Image</string>
+    <string name="meal_add_type_validation">Select Meal Type</string>
+    <string name="meal_add_name_validation">Specify What You Having</string>
+    <string name="meal_add_info_validation">Specify Ingredients</string>
+    <string name="meal_add_restaurant_validation">Specify Where are you?</string>
+    <string name="meal_add_location_validation">You forgot adding location</string>
+
+    <!--Meal Location Selector Activity-->
+    <string name="meal_location_activity_hint">Long Press Marker To Drag</string>
+    <string name="title_activity_meal_location_selector">Map</string>
+    <string name="meal_location_confirm_button_label">Confirm Location</string>
+    <string name="meal_location_intent_lat">latitude</string>
+    <string name="meal_location_intent_lng">longitude</string>
+    <string name="meal_add_capture_image">Capture Image</string>
+    <string name="meal_welcome">Let\'s add your first meal while travelling</string>
+
+</resources>

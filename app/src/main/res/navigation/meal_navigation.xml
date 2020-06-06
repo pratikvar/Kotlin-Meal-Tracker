@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/meal_navigation"
+    app:startDestination="@id/mealListFragment">
+
+    <fragment
+        android:id="@+id/mealListFragment"
+        android:name="com.skybase.mealtracker.ui.view.MealListFragment"
+        android:label="fragment_meal_list"
+        tools:layout="@layout/fragment_meal_list">
+        <action
+            android:id="@+id/action_mealListFragment_to_mealAddFragment"
+            app:destination="@id/mealAddFragment" />
+        <action
+            android:id="@+id/action_mealListFragment_to_mealDetailsFragment"
+            app:destination="@id/mealDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mealAddFragment"
+        android:name="com.skybase.mealtracker.ui.view.MealAddFragment"
+        android:label="fragment_meal_add"
+        tools:layout="@layout/fragment_meal_add">
+        <action
+            android:id="@+id/action_mealAddFragment_to_mealListFragment"
+            app:destination="@id/mealListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mealDetailsFragment"
+        android:name="com.skybase.mealtracker.ui.view.MealDetailsFragment"
+        android:label="fragment_meal_details"
+        tools:layout="@layout/fragment_meal_details">
+
+        <argument
+            android:name="meal_id"
+            app:argType="long" />
+
+    </fragment>
+</navigation>

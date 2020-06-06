@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.skybase.humanizer.TextHumanizer" />
+
+        <variable
+            name="meal"
+            type="com.skybase.mealtracker.ui.Meal" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_meal"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/primaryLightColor"
+                android:imageUrl="@{meal.meal_image}"
+                app:layout_constraintBottom_toBottomOf="@id/guideline2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{meal.meal_type.toString()}"
+                android:textColor="@color/primaryTextColor"
+                app:chipBackgroundColor="@color/primaryLightColor"
+                app:layout_constraintBottom_toBottomOf="@id/iv_meal"
+                app:layout_constraintEnd_toEndOf="@id/iv_meal"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="@id/iv_meal"
+                app:layout_constraintTop_toTopOf="@id/iv_meal"
+                app:layout_constraintVertical_bias="0.95" />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline_right"
+                app:layout_constraintStart_toEndOf="@id/guideline_left"
+                app:layout_constraintTop_toBottomOf="@id/guideline2"
+                app:layout_constraintVertical_bias="0.0">
+
+                <ImageView
+                    android:id="@+id/iv_meal_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="@dimen/margin8"
+                    android:padding="@dimen/padding4"
+                    android:src="@drawable/ic_details_food" />
+
+                <TextView
+                    android:id="@+id/tv_meal_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="@dimen/margin8"
+                    android:layout_marginTop="@dimen/margin8"
+                    android:layout_toEndOf="@id/iv_meal_icon"
+                    android:gravity="center_vertical"
+                    android:maxLines="2"
+                    android:text="@{TextHumanizer.humanize(meal.meal_name)}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+                <TextView
+                    android:id="@+id/tv_meal_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_meal_name"
+                    android:layout_marginStart="@dimen/margin8"
+                    android:layout_marginTop="@dimen/margin4"
+                    android:layout_toEndOf="@id/iv_meal_icon"
+                    android:gravity="center_vertical"
+                    android:text="@{TextHumanizer.humanize(meal.meal_info)}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <ImageView
+                    android:id="@+id/iv_meal_rest"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/tv_meal_info"
+                    android:layout_marginTop="@dimen/margin8"
+                    android:padding="2dp"
+                    android:src="@drawable/ic_details_rest" />
+
+                <TextView
+                    android:id="@+id/tv_meal_rest"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/tv_meal_info"
+                    android:layout_marginStart="@dimen/margin8"
+                    android:layout_marginTop="@dimen/margin8"
+                    android:layout_toEndOf="@id/iv_meal_rest"
+                    android:gravity="center_vertical"
+                    android:text="@{TextHumanizer.humanize(meal.meal_restaurant)}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <ImageView
+                    android:id="@+id/iv_meal_time"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/iv_meal_rest"
+                    android:layout_marginTop="@dimen/margin8"
+                    android:padding="@dimen/padding4"
+                    android:src="@drawable/ic_details_date" />
+
+                <TextView
+                    android:id="@+id/tv_meal_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/iv_meal_rest"
+                    android:layout_marginStart="@dimen/margin8"
+                    android:layout_marginTop="@dimen/margin8"
+                    android:layout_toEndOf="@id/iv_meal_time"
+                    android:gravity="center_vertical"
+                    android:text="@{meal.getMealDateTime}" />
+
+                <ImageView
+                    android:id="@+id/iv_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_below="@id/tv_meal_time"
+                    android:layout_marginTop="@dimen/margin12"
+                    android:layout_marginBottom="@dimen/margin8"
+                    app:locationImage="@{meal.meal_location.toString()}" />
+
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.40" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>
